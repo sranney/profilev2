@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { Layout } from '../components/layouts/DefaultLayout'
+import { ActivePageEnum } from '../enumTypes'
 
 export default function Home() {
   return (

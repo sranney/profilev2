@@ -1,10 +1,16 @@
+import { useRef } from 'react'
 import { useRouter } from 'next/router'
+import { getTopics } from '../../backend-operations-lib/getTopics'
 import { Layout } from '../../components/layouts/TopicLayout'
+import { ActivePageEnum } from '../../enumTypes'
+import { NavigationContext } from '../../utils/contexts/NavigationContext'
 
-export async function getStaticProps(context) {
-  console.log('getStaticProps', context)
+export const getStaticProps = () => {
+  const topics = getTopics()
   return {
-    props: {}
+    props: {
+      topics
+    }
   }
 }
 
@@ -15,12 +21,19 @@ export async function getStaticPaths() {
   }
 }
 
-export default function GeneralTopicPage():JSX.Element {
+type PageProps = {
+  topics: String[]
+}
+
+export default function GeneralTopicPage({topics}: PageProps):JSX.Element {
   const router = useRouter()
-  const {query : {topic}} = router
+  const navigationContextValue = useRef({topics, activePage: router.query.topic})
+  
   return (
-    <Layout activePage={ActivePageEnum[topic]}>
-      <h1>{topic}</h1>
-    </Layout>
+    <NavigationContext.Provider value={navigationContextValue.current}>
+      <Layout activePage={ActivePageEnum[topic]}>
+        <h1>{topic}</h1>
+      </Layout>
+    </NavigationContext.Provider>
   )
 }
