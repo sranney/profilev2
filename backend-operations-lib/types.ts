@@ -1,5 +1,5 @@
 export type FileData = {
-  postId: String,
+  postId: string,
   postData: PostData
 }
 
@@ -41,9 +41,11 @@ type MusicData = {
 }
 
 type WeekLinksData = {
+  title: String,
   postDate: String
 }
 
 type PerspectiveData = {
-  postData: String
+  title: String,
+  postDate: String
 }
