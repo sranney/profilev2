@@ -1,0 +1,1 @@
+export const titleCase = (text: string): string => [...text].map((letter, index) => (index === 0 ? letter.toUpperCase() : letter)).join('')

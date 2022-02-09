@@ -17,6 +17,7 @@
     "resolveJsonModule": true,
     "jsx": "preserve",
     "incremental": true,
+    "downlevelIteration": true,
     "isolatedModules": true
   },
   "include": [

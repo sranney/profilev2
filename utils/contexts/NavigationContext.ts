@@ -2,7 +2,7 @@ import { createContext } from 'react'
 import { ActivePageEnum } from '../../enumTypes'
 
 type Navigation = {
-  activePage: ActivePageEnum,
+  activePage?: ActivePageEnum,
   topics: string[]
 }
 

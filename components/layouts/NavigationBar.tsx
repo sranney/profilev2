@@ -1,8 +1,7 @@
 import { useContext } from 'react'
 import Link from 'next/link'
 import { NavigationContext } from '../../utils/contexts/NavigationContext'
-
-const pages = ['Home', 'Movies', 'Cooking', 'Music', 'Projects', 'Books']
+import { MdHome } from 'react-icons/md'
 
 export const NavigationBar = ():JSX.Element => {
   const {activePage, topics} = useContext(NavigationContext)
@@ -27,9 +26,7 @@ export const NavigationBar = ():JSX.Element => {
           </ul>
         </div>
       </div>
-      <div className="text-3xl text-white">
-        {activePage}
-      </div>
+      <Link href="/"><a className="self-center"><MdHome className="text-3xl text-white" /></a></Link>
     </div>
   )
 }
