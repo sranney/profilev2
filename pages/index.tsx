@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { NavigationContext } from '../utils/contexts/NavigationContext'
-import Head from 'next/head'
+import { HeadTag } from '../components/head'
 import { Layout } from '../components/layouts/DefaultLayout'
 import { ActivePageEnum } from '../enumTypes'
 import { GetStaticProps } from 'next'
@@ -24,10 +24,7 @@ export default function Home({topics}:PageProps):JSX.Element {
   return (
     <NavigationContext.Provider value={navigationContextValue.current}>
       <Layout activePage={ActivePageEnum.Home}>
-        <Head>
-          <title>Spencer Ranney - Home</title>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
+        <HeadTag currentTopic="Home" />
         <div className="flex flex-col items-star mt-12 min-h-screen py-2 px-20">
           <p className="text-6xl font-bold mb-3">Hi, my name is Spencer.</p>
           <p>I share my passions, studies and more information about myself on this site. I love my family, friends, God, the work I do, cooking, learning, teaching, movies and music. On a weekly basis, I will be posting new content, ranging on topics from what I have learned over the previous week and notes on software and product centric books to information about movies and music I love, and food I have made. After I finish a side project, I will write about what I learned while making the project.</p>

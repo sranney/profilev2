@@ -22,3 +22,11 @@ h2 {
 p, h1, h2, pre {
   color: rgb(30 41 59);
 }
+
+span.chip {
+  background-color: rgb(245 245 245);
+  font-style: italic;
+  padding: 8px 16px;
+  margin-right: 16px;
+  border-radius: 10px;
+}
