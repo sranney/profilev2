@@ -14,7 +14,7 @@ export const getTopicPosts = (topicName: String):FileData[] => {
      * filenames must be unique in a directory, so file names act as a natural origin for ids for category posts
      * each post file is a md
     */
-    const postId:String = fileName.replace(/\.md$/, '')
+    const postId:string = fileName.replace(/\.md$/, '')
     /**
      * 2. Read and parse the meta data for the post file
      * this is the data included in the "---" in each .md file
