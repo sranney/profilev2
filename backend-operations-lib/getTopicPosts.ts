@@ -29,5 +29,5 @@ export const getTopicPosts = (topicName: String):FileData[] => {
       // post data varies across different topics, so to type it properly for returning data, we need to use the union type
       postData: parsedFileContent.data as PostData
     }
-  })
+  }).filter(({postId}) => postId !== 'current')
 }

@@ -8,7 +8,7 @@ import { Layout } from '../../components/layouts/TopicLayout'
 import { ActivePageEnum } from '../../enumTypes'
 import { NavigationContext } from '../../utils/contexts/NavigationContext'
 import { FileData, PostContentData } from '../../backend-operations-lib/types'
-import Link from 'next/link'
+import { PostLink } from '../../components/post-link'
 import { titleCase } from '../../utils/functions/strings'
 
 
@@ -63,16 +63,7 @@ export default function GeneralTopicPage({topics, currentTopicPosts, currentTopi
         </Head>
         <h1 className="text-center text-6xl">{titleCase(currentTopic)}</h1>
         <div dangerouslySetInnerHTML={{__html: currentPostContent.postContentString}} />
-        {
-          currentTopicPosts.map(({postData, postId}) => (
-            <li key={postId} className="list-none">
-              <Link href={`/${currentTopic}/${postId}`}>
-                <a className="text-3xl text-slate-600">{postData.title}</a>
-              </Link>
-              <span className="italic ml-4">{postData.postDate}</span>
-            </li>
-          ))
-        }
+        { currentTopicPosts.map(post => <PostLink key={post.postId} post={post} currentTopic={currentTopic} />) }
       </Layout>
     </NavigationContext.Provider>
   )
