@@ -61,15 +61,15 @@ export default function GeneralTopicPage({topics, currentTopicPosts, currentTopi
           <title>Spencer Ranney - {currentTopic}</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <h1 className="text-center text-6xl text-slate-800 font-bold">{titleCase(currentTopic)}</h1>
+        <h1 className="text-center text-6xl">{titleCase(currentTopic)}</h1>
         <div dangerouslySetInnerHTML={{__html: currentPostContent.postContentString}} />
         {
           currentTopicPosts.map(({postData, postId}) => (
-            <li key={postId}>
+            <li key={postId} className="list-none">
               <Link href={`/${currentTopic}/${postId}`}>
                 <a className="text-3xl text-slate-600">{postData.title}</a>
               </Link>
-              <p className="italic">{postData.postDate}</p>
+              <span className="italic ml-4">{postData.postDate}</span>
             </li>
           ))
         }

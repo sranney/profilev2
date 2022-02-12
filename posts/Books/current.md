@@ -1,7 +1,8 @@
 ---
 title: "UX Strategy: Product Strategy Techniques for Devising Innovative Digital Solutions"
 author: "Jaime Levy"
-postDate: "2022-02-12"
+postDate: "02-12-2022"
+tags: ["UX", "Software"]
 ---
 
 # Book Notes on UX Strategy
