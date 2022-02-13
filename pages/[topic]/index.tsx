@@ -4,19 +4,17 @@ import { getTopics } from '../../backend-operations-lib/getTopics'
 import { getTopicPosts } from '../../backend-operations-lib/getTopicPosts'
 import { getPostContent } from '../../backend-operations-lib/getPostContent'
 import { Layout } from '../../components/layouts/TopicLayout'
-import { ActivePageEnum } from '../../enumTypes'
 import { NavigationContext } from '../../utils/contexts/NavigationContext'
-import { FileData, PostContentData } from '../../backend-operations-lib/types'
-import { PostLink } from '../../components/post-link'
+import { PostLink } from '../../components/post-components/post-link'
+import { PostMetaData } from '../../components/post-components/post-meta-data'
 import { titleCase } from '../../utils/functions/strings'
 import { HeadTag } from '../../components/head'
-import { Tags } from '../../components/Tags'
-
+import { ActivePageEnum } from '../../enumTypes'
 
 type PageData = {
   topics: string[],
   currentTopicPosts: FileData[],
-  currentTopic: ActivePageEnum,
+  currentTopic: keyof typeof ActivePageEnum,
   currentPostContent: PostContentData
 }
 
@@ -48,23 +46,16 @@ export async function getStaticPaths() {
   }
 }
 
-
 export default function GeneralTopicPage({topics, currentTopicPosts, currentTopic, currentPostContent}: PageData):JSX.Element {
   const [navigationContextValue, setNavigationContextValue] = useState({topics, activePage: currentTopic})
   useEffect(() => {
     setNavigationContextValue({...navigationContextValue, activePage: currentTopic})
   }, [currentTopic])
-  console.log('currentPostContent', currentPostContent)
   return (
     <NavigationContext.Provider value={navigationContextValue}>
-      <Layout activePage={ActivePageEnum.Home}>
+      <Layout>
         <HeadTag currentTopic={currentTopic} />
-        <h1 className="text-center text-6xl">{titleCase(currentTopic)}</h1>
-        <div className="flex flex-col items-center">
-          <p className="italic">Latest post shown below</p>
-          <p className="italic">Date of Post: {currentPostContent.postMetaData.postDate}</p>
-          <div className="mt-3"><Tags tags={currentPostContent.postMetaData.tags} /></div>
-        </div>
+        <PostMetaData postMetaData={currentPostContent.postMetaData} />
         <div dangerouslySetInnerHTML={{__html: currentPostContent.postContentString}} />
         { currentTopicPosts.map(post => <PostLink key={post.postId} post={post} currentTopic={currentTopic} />) }
       </Layout>

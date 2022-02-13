@@ -3,7 +3,6 @@ import matter from 'gray-matter'
 import { remark } from 'remark'
 import html from 'remark-html'
 import { dataDirectory } from './constants'
-import { PostData, PostContentData } from './types'
 
 /** while the approach taken is ultimately that which is presented in the Nextjs guide, I arrived at this approach being adequate after learning about 
   * unified which is the underlying package which remark uses and different sanitation techniques

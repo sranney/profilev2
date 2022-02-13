@@ -1,9 +1,10 @@
 import { NavigationBar } from './NavigationBar'
+import { LayoutProps } from './types'
 
-export const Layout = ({children, activePage}: LayoutWithActivePage):JSX.Element => {
+export const Layout = ({ children }: LayoutProps):JSX.Element => {
   return (
     <>
-      <NavigationBar activePage={activePage} />
+      <NavigationBar/>
       <main className="container mx-auto pt-10">
         {children}
       </main>

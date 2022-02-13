@@ -1,6 +1,5 @@
 import fs from 'fs'
 import { dataDirectory } from './constants'
-import { FileData, PostData } from './types'
 import matter from 'gray-matter'
 
 export const getTopicPosts = (topicName: String):FileData[] => {

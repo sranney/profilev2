@@ -1,11 +1,9 @@
 import Link from 'next/link'
-import { FileData } from '../../backend-operations-lib/types'
-import { ActivePageEnum } from '../../enumTypes'
-
+import { ActivePageEnum } from '../../../enumTypes'
 
 type PostLinkPropTypes = {
   post: FileData,
-  currentTopic: ActivePageEnum
+  currentTopic: keyof typeof ActivePageEnum
 }
 
 export const PostLink = ({post: {postId, postData}, currentTopic}: PostLinkPropTypes): JSX.Element => {
