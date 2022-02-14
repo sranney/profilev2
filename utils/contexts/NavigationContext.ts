@@ -1,13 +1,13 @@
 import { createContext } from 'react'
-import { ActivePageEnum } from '../../enumTypes'
+import { CurrentTopicEnum } from '../../enumTypes'
 
 type Navigation = {
-  activePage?: keyof typeof ActivePageEnum,
+  currentTopic?: keyof typeof CurrentTopicEnum,
   topics: string[]
 }
 
 const initialContextValue: Navigation = {
-  activePage: ActivePageEnum.Home,
+  currentTopic: CurrentTopicEnum.Home,
   topics: []
 }
 

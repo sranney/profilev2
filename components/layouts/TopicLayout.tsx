@@ -1,12 +1,16 @@
+import { useState } from 'react'
 import { NavigationBar } from './NavigationBar'
 import { SideBar } from './SideBar'
 import { LayoutProps } from './types'
 
-export const Layout = ({children}: LayoutProps):JSX.Element => {
+type TopicLayoutProps = LayoutProps & {currentTopicPosts: FileData[]}
+
+export const Layout = ({children, currentTopicPosts}: TopicLayoutProps):JSX.Element => {
+  const [ sideBarVisibility, toggleSideBarVisibility ] = useState<boolean>(false)
   return (
     <>
-      <NavigationBar />
-      <SideBar/>
+      <NavigationBar toggleSideBarVisibility={toggleSideBarVisibility}/>
+      <SideBar sideBarVisibility={sideBarVisibility} toggleSideBarVisibility={toggleSideBarVisibility} currentTopicPosts={currentTopicPosts}/>
       <main className="container mx-auto pt-10">
         {children}
       </main>

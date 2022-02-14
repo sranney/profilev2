@@ -1,4 +1,4 @@
-export enum ActivePageEnum {
+export enum CurrentTopicEnum {
   Home = "Home",
   Movies = "Movies",
   Books = "Books",
