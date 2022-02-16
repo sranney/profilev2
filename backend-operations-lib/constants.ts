@@ -1,3 +1,3 @@
 import path from 'path'
-export const dataDirectory: string = path.join(process.cwd(), 'posts')
-
+export const postDataDirectory: string = path.join(process.cwd(), 'content/posts')
+export const projectsDataDirectory: string = path.join(process.cwd(), 'content/projects')

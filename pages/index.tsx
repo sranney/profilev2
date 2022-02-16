@@ -2,7 +2,6 @@ import { useRef } from 'react'
 import { NavigationContext } from '../utils/contexts/NavigationContext'
 import { HeadTag } from '../components/head'
 import { Layout } from '../components/layouts/DefaultLayout'
-import { CurrentTopicEnum } from '../enumTypes'
 import { GetStaticProps } from 'next'
 import { getTopics } from '../backend-operations-lib/getTopics'
 

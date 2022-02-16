@@ -3,6 +3,18 @@ declare type FileData = {
   postData: PostData
 }
 
+declare type ProjectData = {
+  projectId: string,
+  projectData: ProjectMetaData
+}
+
+declare type ProjectMetaData = {
+  projectTitle: string,
+  imgUrl: string,
+  description: string,
+  projectUrl: `/images/${string}`
+}
+
 declare type PostContentData = {
   postContentString: string,
   postMetaData: PostData

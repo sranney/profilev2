@@ -2,7 +2,7 @@ import fs from 'fs'
 import matter from 'gray-matter'
 import { remark } from 'remark'
 import html from 'remark-html'
-import { dataDirectory } from './constants'
+import { postDataDirectory } from './constants'
 
 /** while the approach taken is ultimately that which is presented in the Nextjs guide, I arrived at this approach being adequate after learning about 
   * unified which is the underlying package which remark uses and different sanitation techniques
@@ -12,7 +12,7 @@ import { dataDirectory } from './constants'
   * that is the only part of the process which is exposed
 **/
 export const getPostContent = async (topic: string, id: string = 'current'):Promise<PostContentData> => {
-  const fullPath = `${dataDirectory}/${topic}/${id}.md`
+  const fullPath = `${postDataDirectory}/${topic}/${id}.md`
   const fileContents = fs.readFileSync(fullPath, 'utf8')
 
   // Use gray-matter to parse the post metadata section

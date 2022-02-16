@@ -1,7 +1,8 @@
 import { Dispatch, SetStateAction, useContext } from 'react'
-import { NavigationDropdown } from './NavigationDropdown'
+import { PostNavigationDropdown } from './PostNavigationDropdown'
 import { NavigationContext } from '../../../utils/contexts/NavigationContext'
 import { NavButtons } from './NavButtons'
+import Link from 'next/link'
 
 type NavigationBarProps = {
   toggleSideBarVisibility?: Dispatch<SetStateAction<boolean>>
@@ -11,9 +12,11 @@ export const NavigationBar = ({toggleSideBarVisibility = () => {}}: NavigationBa
   const {currentTopic} = useContext(NavigationContext)
   return (
     <div className="bg-slate-800 h-10 px-20 flex justify-between fixed w-full z-10">
-      <div className="text-3xl text-white group">
-        Navigation
-        <NavigationDropdown />
+      <div className="flex">
+        <PostNavigationDropdown />
+        <Link href="/projects">
+          <a className="text-3xl text-white">Projects</a>
+        </Link>
       </div>
       {currentTopic && <NavButtons toggleSideBarVisibility={toggleSideBarVisibility} />}
     </div>

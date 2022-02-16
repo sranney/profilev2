@@ -1,9 +1,9 @@
 import fs from 'fs'
-import { dataDirectory } from './constants'
+import { postDataDirectory } from './constants'
 import matter from 'gray-matter'
 
 export const getTopicPosts = (topicName: String):FileData[] => {
-  const topicDirectory = `${dataDirectory}/${topicName}`
+  const topicDirectory = `${postDataDirectory}/${topicName}`
   const fileNames = fs.readdirSync(topicDirectory) // this is just file names, but when displaying the posts, we want to display additional information about the posts
   // this data is in each of the files, so we have to read some of the data from the files and send that back
   // form an array of post data for the particular topic's posts
