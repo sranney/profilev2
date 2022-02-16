@@ -28,14 +28,18 @@ export const SideBar = ({sideBarVisibility, toggleSideBarVisibility, currentTopi
         })
     }))
   }, [postFilterText, currentTopicPosts, setFilteredPosts])
-  const classes = `p-4 min-h-screen bg-slate-400 w-3/12 fixed z-20 transition-[right] ${sideBarVisibility ? ' right-0' : ' -right-full'}`
+  const classes = `min-h-screen bg-slate-400 w-3/12 fixed z-20 transition-[right] ${sideBarVisibility ? ' right-0' : ' -right-full'}`
   const closeSideBar = ():void => toggleSideBarVisibility(false)
   return (
     <div className={classes}>
-      <p className="font-bold text-2xl">Other &ldquo;{ titleCase(currentTopic || 'Home') }&rdquo; posts</p>
-      <MdClose onClick={closeSideBar} className="absolute right-4 top-4 cursor-pointer text-xl"/>
-      <SideBarFilter setPostFilterText={setPostFilterText} />
-      { filteredPosts.map(post => <PostLink key={post.postId} post={post} currentTopic={currentTopic || 'Home'} />) }
+      <div className="h-10 bg-slate-800 flex items-center">
+        <p className="px-4 font-bold text-2xl text-white">Other &ldquo;{ titleCase(currentTopic || 'Home') }&rdquo; posts</p>
+      </div>
+      <MdClose onClick={closeSideBar} className="absolute right-4 top-2 cursor-pointer text-2xl text-white"/>
+      <div className="p-4">
+        <SideBarFilter setPostFilterText={setPostFilterText} />
+        { filteredPosts.map(post => <PostLink key={post.postId} post={post} currentTopic={currentTopic || 'Home'} />) }
+      </div>
     </div>
   )
 }

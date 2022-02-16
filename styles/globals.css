@@ -30,3 +30,7 @@ span.chip {
   margin-right: 16px;
   border-radius: 10px;
 }
+
+.border-thin {
+  border: 1px solid rgb(71 85 105);
+}
