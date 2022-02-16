@@ -18,7 +18,6 @@ export const getPostContent = async (topic: string, id: string = 'current'):Prom
   // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents)
   const postMetaData = matterResult.data as PostData
-  console.log('matterResult', matterResult)
   // Use remark to convert markdown into HTML string
   const processedContent = await remark()
     .use(html)

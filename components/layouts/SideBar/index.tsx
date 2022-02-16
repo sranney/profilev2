@@ -18,9 +18,9 @@ export const SideBar = ({sideBarVisibility, toggleSideBarVisibility, currentTopi
     setFilteredPosts(currentTopicPosts.filter(({postData}) => {
       return postFilterText === '' 
         ? true
-        : Object.entries(postData).some(([entryKey, entryValue]) => {
-          if(entryKey === 'tags' && Array.isArray(entryValue)) {
-            return entryValue.some(tag => tag.includes(postFilterText))
+        : Object.entries(postData).some(([_, entryValue]) => {
+          if(Array.isArray(entryValue)) {
+            return entryValue.some(item => item.includes(postFilterText))
           } else if(!Array.isArray(entryValue)) {
             console.log(entryValue)
             return entryValue.toLowerCase().includes(postFilterText)
@@ -28,7 +28,7 @@ export const SideBar = ({sideBarVisibility, toggleSideBarVisibility, currentTopi
         })
     }))
   }, [postFilterText, currentTopicPosts, setFilteredPosts])
-  const classes = `min-h-screen bg-slate-400 w-3/12 fixed z-20 transition-[right] ${sideBarVisibility ? ' right-0' : ' -right-full'}`
+  const classes = `min-h-screen bg-slate-400 w-full xl:w-3/12 fixed z-20 transition-[right] ${sideBarVisibility ? ' right-0' : ' -right-full'}`
   const closeSideBar = ():void => toggleSideBarVisibility(false)
   return (
     <div className={classes}>

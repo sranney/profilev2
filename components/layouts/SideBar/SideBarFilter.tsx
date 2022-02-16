@@ -6,8 +6,8 @@ type SideBarFilters = {
 
 export const SideBarFilter = ({setPostFilterText}: SideBarFilters):JSX.Element => {
   const inputEventHandler = (event:React.FormEvent<HTMLInputElement>):void => setPostFilterText(event.currentTarget.value)
-  return <div className="mt-4">
+  return <div className="mt-4 text-slate-800">
     Filter
-    <input type="text" onInput={inputEventHandler} className="bg-transparent ml-4 border-thin"/>
+    <input type="text" onInput={inputEventHandler} className="bg-transparent ml-4 border-thin text-slate-800"/>
   </div>
 }

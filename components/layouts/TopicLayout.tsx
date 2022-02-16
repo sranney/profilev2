@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { NavigationBar } from './NavigationBar'
 import { SideBar } from './SideBar'
 import { LayoutProps } from './types'
+import { Footer } from './Footer'
 
 type TopicLayoutProps = LayoutProps & {currentTopicPosts: FileData[]}
 
@@ -11,9 +12,10 @@ export const Layout = ({children, currentTopicPosts}: TopicLayoutProps):JSX.Elem
     <>
       <NavigationBar toggleSideBarVisibility={toggleSideBarVisibility}/>
       <SideBar sideBarVisibility={sideBarVisibility} toggleSideBarVisibility={toggleSideBarVisibility} currentTopicPosts={currentTopicPosts}/>
-      <main className="container mx-auto pt-10">
+      <main className="xl:container px-5 mx-auto pt-10">
         {children}
       </main>
+      <Footer />
     </>
   )
 }

@@ -12,7 +12,7 @@ export const PostLink = ({post: {postId, postData}, currentTopic}: PostLinkPropT
       <Link href={`/${currentTopic}/${postId}`}>
         <a className="text-lg text-slate-600">{postData.title}</a>
       </Link>
-      <p className="italic">Date: {postData.postDate}</p>
+      <p className="italic text-slate-600">Date: {postData.postDate}</p>
     </li>
   )
 }

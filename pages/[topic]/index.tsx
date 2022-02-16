@@ -5,7 +5,6 @@ import { getTopicPosts } from '../../backend-operations-lib/getTopicPosts'
 import { getPostContent } from '../../backend-operations-lib/getPostContent'
 import { Layout } from '../../components/layouts/TopicLayout'
 import { NavigationContext } from '../../utils/contexts/NavigationContext'
-import { PostLink } from '../../components/post-components/post-link'
 import { PostMetaData } from '../../components/post-components/post-meta-data'
 import { HeadTag } from '../../components/head'
 import { CurrentTopicEnum } from '../../enumTypes'
@@ -65,7 +64,7 @@ export default function GeneralTopicPage({topics, currentTopicPosts, currentTopi
     <NavigationContext.Provider value={navigationContextValue}>
       <Layout currentTopicPosts={currentTopicPosts}>
         <HeadTag currentTopic={currentTopic} />
-        <PostMetaData postMetaData={currentPostContent.postMetaData} />
+        <PostMetaData postMetaData={currentPostContent.postMetaData} topic={currentTopic}/>
         <div dangerouslySetInnerHTML={{__html: currentPostContent.postContentString}} />
       </Layout>
     </NavigationContext.Provider>

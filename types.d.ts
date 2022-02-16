@@ -16,6 +16,7 @@ declare type ProjectMetaData = {
 }
 
 declare type PostContentData = {
+  topic: string,
   postContentString: string,
   postMetaData: PostData
 }

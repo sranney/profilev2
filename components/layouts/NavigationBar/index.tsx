@@ -11,7 +11,7 @@ type NavigationBarProps = {
 export const NavigationBar = ({toggleSideBarVisibility = () => {}}: NavigationBarProps):JSX.Element => {
   const {currentTopic} = useContext(NavigationContext)
   return (
-    <div className="bg-slate-800 h-10 px-20 flex justify-between fixed w-full z-10">
+    <div className="bg-slate-800 h-10 xl:px-20 px-5 flex justify-between fixed w-full z-10">
       <div className="flex">
         <PostNavigationDropdown />
         <Link href="/projects">
